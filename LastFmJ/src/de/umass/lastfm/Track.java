@@ -649,8 +649,21 @@ public class Track extends MusicEntry {
 			final String nowPlayingAttr = element.getAttribute("nowplaying");
 			if (nowPlayingAttr != null)
 				track.nowPlaying = Boolean.valueOf(nowPlayingAttr);
-			if (element.hasChild("duration"))
-				track.duration = Integer.parseInt(element.getChildText("duration")) / 1000;
+			if (element.hasChild("duration")){
+
+				//gwm: added protection if duration doesn't convert to int
+				if (!"".equals(element.getChildText("duration"))){
+					try{
+					track.duration = Integer.parseInt(element.getChildText("duration")) / 1000;
+					}
+					catch(Exception e){
+						//throw new Exception(e);
+						System.out.println(e.getMessage() + " Setting duration to 0 for:" + track.getName());
+						track.duration=0;
+						e.printStackTrace();
+					}
+				}
+			}
 			DomElement album = element.getChild("album");
 			if (album != null) {
 				track.album = album.getText();

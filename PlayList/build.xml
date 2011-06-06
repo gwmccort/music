@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ======================================================================
+     Apr 21, 2011 2:13:03 PM
+
+     project
+     description
+
+     gwmccort
+     ====================================================================== -->
+<project name="PlayList3" default="resolve" xmlns:ivy="antlib:org.apache.ivy.ant">
+	<description>
+            description
+    </description>
+
+	<setproxy proxyhost="rcproxy" proxyport="80" />
+
+	<!-- =================================
+	          target: resolve
+	         ================================= -->
+	<target name="resolve" description="--> retrieve dependencies with ivy">
+		<ivy:retrieve />
+	</target>
+
+</project>

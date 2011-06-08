@@ -37,6 +37,66 @@
 			<key>File Folder Count</key><integer>4</integer>
 			<key>Library Folder Count</key><integer>1</integer>
 		</dict>
+		<key>1043</key>
+		<dict>
+			<key>Track ID</key><integer>1043</integer>
+			<key>Name</key><string>Groove Holmes</string>
+			<key>Artist</key><string>Beastie Boys</string>
+			<key>Album Artist</key><string>Beastie Boys</string>
+			<key>Composer</key><string>Adam yauch</string>
+			<key>Album</key><string>The In Sound From Way Out!</string>
+			<key>Genre</key><string>Funk</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>7747086</integer>
+			<key>Total Time</key><integer>151771</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Year</key><integer>1996</integer>
+			<key>Date Modified</key><date>2010-12-27T10:52:16Z</date>
+			<key>Date Added</key><date>2011-04-02T01:54:17Z</date>
+			<key>Bit Rate</key><integer>256</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>Ito [SKIPPED]</string>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>5</integer>
+			<key>Sort Album</key><string>In Sound From Way Out!</string>
+			<key>Sort Album Artist</key><string>Beastie Boys</string>
+			<key>Sort Artist</key><string>Beastie Boys</string>
+			<key>Persistent ID</key><string>17F4769BA8D08D61</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/P:/FANTOM%20HDS721010CLA332/Music/My%20Music/Beastie%20Boys/The%20In%20Sound%20From%20Way%20Out!/01%20-%20Beastie%20Boys%20-%20Groove%20Holmes.mp3</string>
+			<key>File Folder Count</key><integer>-1</integer>
+			<key>Library Folder Count</key><integer>-1</integer>
+		</dict>
+		<key>1045</key>
+		<dict>
+			<key>Track ID</key><integer>1045</integer>
+			<key>Name</key><string>Sabrosa</string>
+			<key>Artist</key><string>Beastie Boys</string>
+			<key>Album Artist</key><string>Beastie Boys</string>
+			<key>Composer</key><string>Eric Bobo</string>
+			<key>Album</key><string>The In Sound From Way Out!</string>
+			<key>Genre</key><string>Funk</string>
+			<key>Kind</key><string>MPEG audio file</string>
+			<key>Size</key><integer>9693100</integer>
+			<key>Total Time</key><integer>212584</integer>
+			<key>Track Number</key><integer>2</integer>
+			<key>Year</key><integer>1996</integer>
+			<key>Date Modified</key><date>2010-10-11T01:58:02Z</date>
+			<key>Date Added</key><date>2011-04-02T01:54:18Z</date>
+			<key>Bit Rate</key><integer>256</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>Ito</string>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>5</integer>
+			<key>Sort Album</key><string>In Sound From Way Out!</string>
+			<key>Sort Album Artist</key><string>Beastie Boys</string>
+			<key>Sort Artist</key><string>Beastie Boys</string>
+			<key>Persistent ID</key><string>BDD43BAA9536A0FB</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/P:/FANTOM%20HDS721010CLA332/Music/My%20Music/Beastie%20Boys/The%20In%20Sound%20From%20Way%20Out!/02%20-%20Beastie%20Boys%20-%20Sabrosa.mp3</string>
+			<key>File Folder Count</key><integer>-1</integer>
+			<key>Library Folder Count</key><integer>-1</integer>
+		</dict>
 	</dict>
 	<key>Playlists</key>
 	<array>

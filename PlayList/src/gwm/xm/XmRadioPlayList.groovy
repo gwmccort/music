@@ -5,7 +5,9 @@ class XmRadioPlayList {
 
 	static main(args){
 		System.properties.putAll( ["http.proxyHost":"rcproxy", "http.proxyPort":"80"] )
-		def pl = getSongs()
+		def channel = 61 // bluegrass
+		channel = 29 // jam on
+		def pl = getSongs(channel)
 //		def pl = getSongsFromFile("input/xmRadio.html")
 		for (m in pl){
 			println "${m.artist} : ${m.title} "
@@ -41,7 +43,7 @@ class XmRadioPlayList {
 	static List getSongs(channel){
 		List results = []
 		def slurper = new XmlSlurper(new org.ccil.cowan.tagsoup.Parser())
-		def url = new URL("http://www.dogstarradio.com/search_xm_playlist.php?channel=61")
+		def url = new URL("http://www.dogstarradio.com/search_xm_playlist.php?channel=${channel}")
 		url.withReader { reader ->
 			def html = slurper.parse(reader)
 			def plTable = html.body.center[1].table[0]

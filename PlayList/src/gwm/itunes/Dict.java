@@ -53,15 +53,23 @@ public class Dict {
 			Track t = new Track((Dict)entry.getValue());
 			t.toCSV(writer);
 		}
-
 	}
 
+
+	/**
+	 * Test to create a csv file from an iTunes library xml file.
+	 *
+	 * @param args
+	 * @throws Exception
+	 */
 	public static void main(String[] args) throws Exception {
 		 CSVWriter writer = new CSVWriter(new FileWriter("yourfile.csv"));
 
 		// File file = new File("dict.xml");
-//		File file = new File("input/itunesLib.xml");
-		File file = new File("input/iTunes Music Library.xml");
+		File file = new File("input/itunesLib.xml");
+//		File file = new File("input/iTunes Music Library.xml");
+
+		// use StAX api to read xml
 		XMLInputFactory inputFactory = XMLInputFactory.newInstance();
 		XMLEventReader reader = inputFactory
 				.createXMLEventReader(new FileInputStream(file));

@@ -6,8 +6,9 @@ public class TestClass {
 	public static void main(String[] args) {
 		System.out.println("hello from test class");
 
-                System.out.println("edited from work");
-                System.out.println("edited from github");
+		System.out.println("edited from work");
+		System.out.println("edited from github");
+		System.out.println("from home");
 	}
 
 }

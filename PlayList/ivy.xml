@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<ivy-module version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
-    <info
-        organisation="gwm"
-        module="PlayList3"
-        status="integration">
+<ivy-module version="2.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
+	<info organisation="gwm" module="PlayList3" status="integration">
 	</info>
 	<dependencies>
-        <dependency org="org.codehaus.groovy.modules.http-builder" name="http-builder" rev="0.5.0"/>
-        <dependency org="org.ccil.cowan.tagsoup" name="tagsoup" rev="1.2"/>
-        <dependency org="net.sf.opencsv" name="opencsv" rev="2.0" />
-    </dependencies>
+		<dependency org="org.codehaus.groovy.modules.http-builder"
+			name="http-builder" rev="0.5.0" />
+		<dependency org="org.ccil.cowan.tagsoup" name="tagsoup"
+			rev="1.2" />
+		<!-- <dependency org="net.sf.opencsv" name="opencsv" rev="2.0" /> -->
+
+		<dependency org="net.sf.opencsv" name="opencsv" rev="latest.release" />
+	</dependencies>
 </ivy-module>

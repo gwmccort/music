@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="lib/jid3lib-0.5.4/src"/>
+	<classpathentry excluding="JID3Example.java" kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="con" path="org.apache.ivyde.eclipse.cpcontainer.IVYDE_CONTAINER/?project=Mp3File&amp;ivyXmlPath=ivy.xml&amp;confs=*"/>
-	<classpathentry kind="lib" path="lib/jid3lib-0.5.4/dist/jid3lib-0.5.4.jar"/>
-	<classpathentry kind="lib" path="lib/jid3lib-0.5.4/lib/aelfred-1.2.jar"/>
-	<classpathentry kind="lib" path="lib/jid3lib-0.5.4/lib/emma_ant.jar"/>
-	<classpathentry kind="lib" path="lib/jid3lib-0.5.4/lib/emma.jar"/>
-	<classpathentry kind="lib" path="lib/jid3lib-0.5.4/lib/jaxp-1.2.jar"/>
-	<classpathentry kind="lib" path="lib/jid3lib-0.5.4/lib/jdom-1.0b8.jar"/>
-	<classpathentry kind="lib" path="lib/jid3lib-0.5.4/lib/jsch-0.1.25.jar"/>
-	<classpathentry kind="lib" path="lib/jid3lib-0.5.4/lib/junit.jar"/>
-	<classpathentry kind="lib" path="lib/jid3lib-0.5.4/lib/log4j-1.2.6.jar"/>
-	<classpathentry kind="lib" path="lib/jid3lib-0.5.4/lib/oro-2.0.6.jar"/>
-	<classpathentry kind="lib" path="lib/jid3lib-0.5.4/lib/sax-2.0.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

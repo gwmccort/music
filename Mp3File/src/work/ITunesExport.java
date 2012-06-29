@@ -25,9 +25,11 @@ public class ITunesExport {
 //		System.out.println(Arrays.toString(fieldHeaders));
 
 
-		for (ITunesExport track : tracks) {
-			System.out.println(track.getField("Name"));
-		}
+//		for (ITunesExport track : tracks) {
+//			System.out.println(track.getField("Name") + ":" + track.getField("Location"));
+//		}
+//
+//		System.out.println(Arrays.toString(fieldHeaders));
 
 		// // set field separator to tab
 		// CSVReader reader = new CSVReader(new FileReader(inputFile), '\t');
@@ -52,8 +54,11 @@ public class ITunesExport {
 	}
 
 	public String getField(String fieldName) {
-		int index = fieldMap.get(fieldName);
-		return fields[index];
+		if (fieldMap.containsKey(fieldName)){
+			int index = fieldMap.get(fieldName);
+			return fields[index];
+		}
+		else return "INVALID FIELD NAME";
 	}
 
 	static void getHeader(CSVReader reader) throws IOException {
@@ -72,14 +77,14 @@ public class ITunesExport {
 
 		// get the field header
 		// set field separator to tab
-		CSVReader reader = new CSVReader(new FileReader(filePath), '\t');
+		CSVReader reader = new CSVReader(new FileReader(filePath), '\t', '\0' );
 		getHeader(reader);
 
 		// get the tracks
 		String[] track;
 		while ((track = reader.readNext()) != null) {
-			// nextLine[] is an array of values from the line
 			// System.out.println(track[0] + track[1] + "etc...");
+			System.out.println(Arrays.toString(track));
 			results.add(new ITunesExport(track));
 		}
 

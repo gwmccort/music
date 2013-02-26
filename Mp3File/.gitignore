@@ -1,8 +1,5 @@
 /bin
 /lib
-/yourfile.csv
-/yourfile_sorted.csv
 /index
-/bitrate.csv
-/bitrate.xlsx
-/deleteMe.csv
+*.csv
+*.xlsx

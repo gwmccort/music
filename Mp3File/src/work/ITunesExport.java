@@ -19,10 +19,11 @@ public class ITunesExport {
 	 * @param args
 	 */
 	public static void main(String[] args) throws Exception {
+//		String inputFile = "input/Music.txt";
 		String inputFile = "input/Jam.txt";
 
 		List<ITunesExport> tracks = readExportFile(inputFile);
-//		System.out.println(Arrays.toString(fieldHeaders));
+		System.out.println(Arrays.toString(fieldHeaders));
 
 
 //		for (ITunesExport track : tracks) {

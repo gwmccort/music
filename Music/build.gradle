@@ -1,2 +1,15 @@
 apply plugin: 'groovy'
 apply plugin: 'eclipse'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	compile 'org.codehaus.groovy:groovy-all:2.1.0'
+	compile 'org:jaudiotagger:2.0.3'
+	compile 'commons-io:commons-io:2.4'
+	compile 'net.sf.opencsv:opencsv:2.3'
+	compile 'org.apache.lucene:lucene-core:3.3.0'
+	compile 'net.sf.opencsv:opencsv:2.3'
+}

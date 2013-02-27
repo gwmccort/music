@@ -45,8 +45,8 @@ public class Mp3File {
 //	 static final String INPUT_FILE = "C:\\Users\\Public\\Music";
 //	 static final String INPUT_FILE = "P:\\FANTOM HDS721010CLA332\\Music\\My Music\\Beastie Boys";
 //	 static final String INPUT_FILE = "C:\\Users\\Glen\\Downloads";
-	static final String INPUT_FILE = "P:\\FANTOM HDS721010CLA332\\Music\\My Music";
-	static final String OUT_FILE = "bitrate.csv";
+	static final String INPUT_DIR = "P:\\FANTOM HDS721010CLA332\\Music\\My Music";
+	static final String OUT_FILE = "output/bitrate.csv";
 //	static final String OUT_FILE = "deleteme.txt";
 
 	/**
@@ -212,7 +212,7 @@ public class Mp3File {
 		}
 
 		CSVWriter writer = new CSVWriter(new FileWriter(OUT_FILE));
-		File path = new File(INPUT_FILE);
+		File path = new File(INPUT_DIR);
 		Collection<File> files = FileUtils.listFiles(path,
 				new String[] { "mp3" }, true);
 		System.out.println("files.size:" + files.size());

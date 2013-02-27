@@ -39,7 +39,7 @@ public class TracksXMLParserSAX {
 //				System.out.println(t);
 
 			// write to csv
-			CSVWriter writer = new CSVWriter(new FileWriter("itunes.csv"));
+			CSVWriter writer = new CSVWriter(new FileWriter("output/itunes.csv"));
 			writer.writeNext(Track.getColumns());
 			for (Track t : tracks) {
 				writer.writeNext(t.toArray());

@@ -1,5 +1,11 @@
 package gwm.itunes.xml;
 
+/**
+ * Enums for iTunes xml tags
+ * 
+ * @author Glen
+ *
+ */
 public enum Tags {
 	NONE(""), PLIST("plist"), DICT("dict"), KEY("key"), STRING("string"), INTEGER(
 			"integer"), DATE("date"), DATA("data"), TRUE("true"), FALSE("false"), ARRAY("array");

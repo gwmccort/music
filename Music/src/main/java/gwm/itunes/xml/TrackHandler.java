@@ -1,5 +1,12 @@
 package gwm.itunes.xml;
 
+import gwm.itunes.model.Track;
+
+import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,137 +25,123 @@ public class TrackHandler extends DefaultHandler {
 		return tracks;
 	}
 
-	boolean isInTracks = false;
-	boolean isInTrack = false;
+	private boolean isInTracks = false;
+	private boolean isInTrack = false;
+	private boolean isInPlaylists = false;
 
-	boolean isKey = false;
-	boolean isInteger = false;
-	boolean isString = false;
+	private Keys currentKey = Keys.NONE;
+	private Tags currentTag = Tags.NONE;
 
-	boolean isId = false;
-	boolean isName = false;
-
-	boolean bAge = false;
-	boolean bName = false;
-	boolean bGender = false;
-	boolean bRole = false;
+	private StringBuilder charData;
 
 	@Override
 	public void startElement(String uri, String localName, String qName,
 			Attributes attributes) throws SAXException {
 
-		// System.out.println("startElement() localName:" + localName);
-		if (qName.equalsIgnoreCase("dict")) {
-			if (!isInTracks) {
-				isInTracks = true;
-				System.out.println("dict start:" + qName);
-			} else { // if (isInTracks) {
-				isInTrack = true;
-				track = new Track();
-				System.out.println("startElement in track");
-			}
-		} else if (qName.equalsIgnoreCase("key")) {
-			System.out.println("Start key");
-			isKey = true;
-		} else if (qName.equalsIgnoreCase("integer")) {
-			System.out.println("Start int");
-			isInteger = true;
-		} else if (qName.equalsIgnoreCase("string")) {
-			System.out.println("Start string");
-			isString = true;
-		}
+		// System.out.println("startElement() qName:" + qName);
 
-		// if (qName.equalsIgnoreCase("Employee")) {
-		// // create a new Employee and put it in Map
-		// String id = attributes.getValue("id");
-		// // initialize Employee object and set id attribute
-		// track = new Track();
-		// track.setId(Integer.parseInt(id));
-		// // initialize list
-		// if (tracks == null)
-		// tracks = new ArrayList<>();
-		// } else if (qName.equalsIgnoreCase("name")) {
-		// // set boolean values for fields, will be used in setting Employee
-		// // variables
-		// bName = true;
-		// } else if (qName.equalsIgnoreCase("age")) {
-		// bAge = true;
-		// } else if (qName.equalsIgnoreCase("gender")) {
-		// bGender = true;
-		// } else if (qName.equalsIgnoreCase("role")) {
-		// bRole = true;
-		// }
+		Tags tag = Tags.fromString(qName);
+		// System.out.println("startElement() qName:" + qName +" tag:" + tag);
+		currentTag = tag;
+
+		try {
+			switch (tag) {
+				case DICT:
+					if (isInTracks) {
+						isInTrack = true;
+						track = new Track();
+					}
+					break;
+				case STRING:
+					charData = new StringBuilder(200);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.exit(0);
+		}
 	}
 
 	@Override
 	public void endElement(String uri, String localName, String qName)
 			throws SAXException {
-
-		if (qName.equalsIgnoreCase("dict")) {
-			if (isInTrack) {
-				isInTrack = false;
-				tracks.add(track);
-				System.out.println("endElement end Track:");
-			} else if (isInTracks) {
-				isInTracks = false;
-				System.out.println("endElement end Tracks");
-			}
-		} else if (qName.equalsIgnoreCase("integer")) {
-			System.out.println("end integer");
-			isInteger = false;
+		Tags tag = Tags.fromString(qName);
+		switch (tag) {
+			case DICT:
+				if (isInTracks && !isInTrack) {
+					isInTracks = false;
+					// System.out.println("endElement not in tracks");
+				} else if (isInTrack) {
+					isInTrack = false;
+					tracks.add(track);
+					// System.out.println("endElement end Track:" + track);
+				}
+				break;
+			case STRING:
+				switch (currentKey) {
+					case NAME:
+						track.setName(charData.toString());
+						break;
+					case ARTIST:
+						track.setArtist(charData.toString());
+						break;
+					case ALBUM_ARTIST:
+						track.setAlbumArtist(charData.toString());
+						break;
+					case ALBUM:
+						track.setAlbum(charData.toString());
+						break;
+					case LOCATION:
+						try {
+							URL url = new URL(charData.toString());
+							File f = new File(URLDecoder.decode(url.getFile(),
+									"UTF-8"));
+							track.setLocation(f);
+						} catch (MalformedURLException
+								| UnsupportedEncodingException e) {
+							e.printStackTrace();
+						}
+						break;
+				}
 		}
-
-		if (qName.equalsIgnoreCase("Employee")) {
-			// add Employee object to list
-			tracks.add(track);
-		}
+		currentTag = Tags.NONE;
 	}
 
 	@Override
 	public void characters(char ch[], int start, int length)
 			throws SAXException {
 
-		if (isKey) {
-			String key = new String(ch, start, length);
-			// System.out.println("key:" + key);
-			isKey = false;
-			if (key.equals("Track ID")) {
-				isId = true;
-			} else if (key.equals("Name")) {
-				isName = true;
-			}
-		} else if (isString) {
-			String s = new String(ch, start, length);
-			System.out.println("string:" + s);
-			if (isName) {
-				isName = false;
-				String name = new String(ch, start, length);
-				System.out.println("name:" + name);
-				track.setName(name);
-			}
-		} else if (isInteger) {
-			if (isId) {
-				isId = false;
-				int tid = Integer.parseInt(new String(ch, start, length));
-				System.out.println("track id:" + tid);
-				track.setId(tid);
-			}
+		// System.out.println("characters:" + new String(ch, start, length)
+		// + " isKey:" + isKey + " isString:" + isString + " isInt:"
+		// + isInteger + " currentKey:" + currentKey);
+
+		switch (currentTag) {
+
+		// set current key
+			case KEY:
+				String keyName = new String(ch, start, length);
+				Keys key = Keys.fromString(keyName);
+				currentKey = (key != null) ? key : Keys.NONE;
+
+				// determine if in tracks or playlists
+				switch (keyName) {
+					case "Tracks":
+						isInTracks = true;
+						break;
+					case "Playlists":
+						isInPlaylists = true;
+						break;
+				}
+				break;
+
+			case STRING:
+				charData.append(new String(ch, start, length));
+				break;
+			case INTEGER:
+				if (currentKey == Keys.TRACK_ID && isInTrack) {
+					int tid = Integer.parseInt(new String(ch, start, length));
+					track.setId(tid);
+				}
+				break;
 		}
-
-		// if (bAge) {
-		// // age element, set Employee age
-		// track.setAge(Integer.parseInt(new String(ch, start, length)));
-		// bAge = false;
-		// } else if (bName) {
-		// track.setName(new String(ch, start, length));
-		// bName = false;
-		// } else if (bRole) {
-		// track.setRole(new String(ch, start, length));
-		// bRole = false;
-		// } else if (bGender) {
-		// track.setGender(new String(ch, start, length));
-		// bGender = false;
-		// }
-
 	}
 }

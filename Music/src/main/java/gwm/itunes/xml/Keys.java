@@ -1,5 +1,11 @@
 package gwm.itunes.xml;
 
+/**
+ * Enums for iTunes xml dict keys
+ * 
+ * @author Glen
+ *
+ */
 public enum Keys {
 	NONE(""), TRACK_ID("Track ID"), NAME("Name"), ARTIST("Artist"), ALBUM_ARTIST(
 			"Album Artist"), ALBUM("Album"), LOCATION("Location");

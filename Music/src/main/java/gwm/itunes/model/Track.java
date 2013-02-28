@@ -1,4 +1,4 @@
-package gwm.itunes.xml;
+package gwm.itunes.model;
 
 import java.io.File;
 

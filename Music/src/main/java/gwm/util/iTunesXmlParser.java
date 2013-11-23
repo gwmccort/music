@@ -4,10 +4,8 @@ import gwm.itunes.model.Track;
 import gwm.itunes.xml.TrackHandler;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.net.URL;
 import java.util.List;
 import java.util.Properties;
 
@@ -26,9 +24,23 @@ public class iTunesXmlParser {
 		Properties props = new Properties();
 		try {
 			//load a properties file
-			Properties properties = new Properties() ;
-			URL url =  ClassLoader.getSystemResource("music.properties");
-			props.load(new FileInputStream(new File(url.getFile())));
+//			Properties properties = new Properties() ;
+//			URL url =  ClassLoader.getSystemResource("music.properties");
+//			props.load(new FileInputStream(new File(url.getFile())));
+			
+			
+//			final Properties properties = new Properties();
+//			properties.load(this.getClass().getResourceAsStream("foo.properties"));
+			
+			try {
+				props.load(iTunesXmlParser.class.getClassLoader().getResourceAsStream("music.properties"));
+			} catch (IOException e) {
+				System.err.println("Can't read properties file");
+				e.printStackTrace();
+			}
+			
+			
+
 			String itunesFile = props.getProperty("itunes.input");
     		String itunesOutput = props.getProperty("itunes.output");
  

@@ -8,7 +8,9 @@ public class Track {
 	private String artist;
 	private String albumArtist;
 	private String album;
+	private String genre;
 	private File location;
+	private boolean isPodcast = false;
 
 	private int columns = 6;
 
@@ -77,12 +79,28 @@ public class Track {
 		this.album = album;
 	}
 
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
 	public File getLocation() {
 		return location;
 	}
 
 	public void setLocation(File location) {
 		this.location = location;
+	}
+
+	public boolean isPodcast() {
+		return isPodcast;
+	}
+
+	public void setPodcast(boolean isPodcast) {
+		this.isPodcast = isPodcast;
 	}
 
 }

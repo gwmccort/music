@@ -8,7 +8,7 @@ package gwm.itunes.xml;
  */
 public enum Keys {
 	NONE(""), TRACK_ID("Track ID"), NAME("Name"), ARTIST("Artist"), ALBUM_ARTIST(
-			"Album Artist"), ALBUM("Album"), LOCATION("Location");
+			"Album Artist"), ALBUM("Album"), LOCATION("Location"), GENRE("Genre"), PODCAST("Podcast");
 
 	private String text;
 

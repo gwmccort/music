@@ -14,6 +14,12 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+/**
+ * SAX event handler to parse iTunes xml file
+ *
+ * @author gwmccort
+ *
+ */
 public class TrackHandler extends DefaultHandler {
 
 	// List to hold Tracks object
@@ -34,6 +40,11 @@ public class TrackHandler extends DefaultHandler {
 
 	private StringBuilder charData;
 
+	/*
+	 * Process start elements, in particular dict & string.
+	 *
+	 * @see org.xml.sax.helpers.DefaultHandler#startElement(java.lang.String, java.lang.String, java.lang.String, org.xml.sax.Attributes)
+	 */
 	@Override
 	public void startElement(String uri, String localName, String qName,
 			Attributes attributes) throws SAXException {
@@ -61,6 +72,11 @@ public class TrackHandler extends DefaultHandler {
 		}
 	}
 
+	/*
+	 * Process the end element tag.
+	 *
+	 * @see org.xml.sax.helpers.DefaultHandler#endElement(java.lang.String, java.lang.String, java.lang.String)
+	 */
 	@Override
 	public void endElement(String uri, String localName, String qName)
 			throws SAXException {
@@ -90,6 +106,9 @@ public class TrackHandler extends DefaultHandler {
 					case ALBUM:
 						track.setAlbum(charData.toString());
 						break;
+					case GENRE:
+						track.setGenre(charData.toString());
+						break;
 					case LOCATION:
 						try {
 							URL url = new URL(charData.toString());
@@ -102,6 +121,14 @@ public class TrackHandler extends DefaultHandler {
 						}
 						break;
 				}
+				break;
+			case TRUE:
+				switch (currentKey) {
+				case PODCAST:
+					track.setPodcast(true);
+					break;
+				}
+				break;
 		}
 		currentTag = Tags.NONE;
 	}
@@ -137,6 +164,7 @@ public class TrackHandler extends DefaultHandler {
 				charData.append(new String(ch, start, length));
 				break;
 			case INTEGER:
+				// convert track id int to string
 				if (currentKey == Keys.TRACK_ID && isInTrack) {
 					int tid = Integer.parseInt(new String(ch, start, length));
 					track.setId(tid);

@@ -1,6 +1,8 @@
 package gwm.itunes.model;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Track {
 	private int id;
@@ -8,7 +10,9 @@ public class Track {
 	private String artist;
 	private String albumArtist;
 	private String album;
+	private String genre;
 	private File location;
+	private boolean isPodcast = false;
 
 	private int columns = 6;
 
@@ -27,6 +31,17 @@ public class Track {
 		r[idx++] = albumArtist;
 		r[idx++] = album;
 		r[idx++] = (location != null) ? location.getPath() : "";
+		return r;
+	}
+
+	public List<String> toList(){
+		List<String> r = new ArrayList<String>(6);
+		r.add(Integer.toString(id));
+		r.add(name);
+		r.add(artist);
+		r.add(albumArtist);
+		r.add(album);
+		r.add((location != null) ? location.getPath() : "");
 		return r;
 	}
 
@@ -77,12 +92,28 @@ public class Track {
 		this.album = album;
 	}
 
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
 	public File getLocation() {
 		return location;
 	}
 
 	public void setLocation(File location) {
 		this.location = location;
+	}
+
+	public boolean isPodcast() {
+		return isPodcast;
+	}
+
+	public void setPodcast(boolean isPodcast) {
+		this.isPodcast = isPodcast;
 	}
 
 }

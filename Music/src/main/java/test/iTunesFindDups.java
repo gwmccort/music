@@ -1,4 +1,4 @@
-package gwm.util;
+package test;
 
 import gwm.itunes.model.Track;
 import gwm.itunes.xml.TrackHandler;
@@ -17,11 +17,19 @@ import javax.xml.parsers.SAXParserFactory;
 
 import org.xml.sax.SAXException;
 
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.Multimap;
+
 import au.com.bytecode.opencsv.CSVWriter;
 
-public class iTunesXmlParser {
+public class iTunesFindDups {
 
 	public static void main(String[] args) {
+
+		// proxy setting for work
+		System.setProperty("http.proxyHost", "usproxy");
+		System.setProperty("http.proxyPort", "9090");
+
 		SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
 		Properties props = new Properties();
 		try {
@@ -29,23 +37,6 @@ public class iTunesXmlParser {
 			props = new Properties() ;
 			URL url =  ClassLoader.getSystemResource("music.properties");
 			props.load(new FileInputStream(new File(url.getFile())));
-//			Properties properties = new Properties() ;
-//			URL url =  ClassLoader.getSystemResource("music.properties");
-//			props.load(new FileInputStream(new File(url.getFile())));
-
-
-//			final Properties properties = new Properties();
-//			properties.load(this.getClass().getResourceAsStream("foo.properties"));
-
-			try {
-				props.load(iTunesXmlParser.class.getClassLoader().getResourceAsStream("music.properties"));
-			} catch (IOException e) {
-				System.err.println("Can't read properties file");
-				e.printStackTrace();
-			}
-
-
-
 			String itunesFile = props.getProperty("itunes.input");
     		String itunesOutput = props.getProperty("itunes.output");
 
@@ -58,13 +49,25 @@ public class iTunesXmlParser {
 			// Get Tracks
 			List<Track> tracks = handler.getTracks();
 
-			// write to csv
-			CSVWriter writer = new CSVWriter(new FileWriter(itunesOutput));
-			writer.writeNext(Track.getColumns());
+
+			// add to multimap
+			Multimap<String, Track> mm = ArrayListMultimap.create();
 			for (Track t : tracks) {
-				writer.writeNext(t.toArray());
+				String name = t.getName();
+				String album = t.getAlbum();
+				mm.put(name+"|"+album, t);
 			}
-			writer.close();
+
+			for (String k: mm.keySet()) {
+				int size = mm.get(k).size();
+				if (size > 1) {
+					System.out.println("key:" + k + " size:" + mm.get(k).size());
+					for (Track t: mm.get(k)){
+						System.out.println("\t" + t);
+					}
+				}
+			}
+
 
 		} catch (ParserConfigurationException | SAXException | IOException e) {
 			e.printStackTrace();

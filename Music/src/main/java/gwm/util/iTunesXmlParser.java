@@ -45,7 +45,6 @@ public class iTunesXmlParser {
 			}
 
 
-
 			String itunesFile = props.getProperty("itunes.input");
     		String itunesOutput = props.getProperty("itunes.output");
 

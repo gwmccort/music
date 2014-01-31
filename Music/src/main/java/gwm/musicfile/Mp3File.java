@@ -5,7 +5,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.logging.Handler;
-import java.util.logging.Logger;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.lucene.analysis.Analyzer;
@@ -18,13 +17,13 @@ import org.apache.lucene.index.IndexWriterConfig.OpenMode;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.Version;
-import org.jaudiotagger.audio.exceptions.CannotReadException;
 import org.jaudiotagger.audio.exceptions.InvalidAudioFrameException;
 import org.jaudiotagger.audio.exceptions.ReadOnlyFileException;
 import org.jaudiotagger.audio.mp3.MP3File;
 import org.jaudiotagger.tag.FieldKey;
 import org.jaudiotagger.tag.Tag;
 import org.jaudiotagger.tag.TagException;
+import org.slf4j.LoggerFactory;
 
 import au.com.bytecode.opencsv.CSVWriter;
 
@@ -45,9 +44,13 @@ public class Mp3File {
 //	 static final String INPUT_FILE = "C:\\Users\\Public\\Music";
 //	 static final String INPUT_FILE = "P:\\FANTOM HDS721010CLA332\\Music\\My Music\\Beastie Boys";
 //	 static final String INPUT_FILE = "C:\\Users\\Glen\\Downloads";
-	static final String INPUT_DIR = "P:\\FANTOM HDS721010CLA332\\Music\\My Music";
+	static final String INPUT_DIR = "P:\\FANTOM HDS721010CLA332\\Media\\Music";
+//	static final String INPUT_DIR = "P:\\FANTOM HDS721010CLA332\\Media\\Music\\Tea Leaf Green\\Coffee Bean Brown Comes Alive";
+//	static final String INPUT_DIR = "C:\\Users\\Glen\\Music\\deleteme";
 	static final String OUT_FILE = "output/bitrate.csv";
 //	static final String OUT_FILE = "deleteme.txt";
+	private static final org.slf4j.Logger log = LoggerFactory.getLogger(Mp3File.class);
+
 
 	/**
 	 * Create a new Mp3File object
@@ -57,7 +60,8 @@ public class Mp3File {
 	 * @throws Exception
 	 */
 	public Mp3File(File file) { // TODO: deal w/ exception
-		System.out.println("file:" + file);
+//		System.out.println("file:" + file);
+		log.debug("file:{}", file);
 		this.file = file;
 //		AudioFile af;
 //		MP3File af;
@@ -66,7 +70,10 @@ public class Mp3File {
 			
 			try {
 				MP3File mp3File = new MP3File(file);
-				System.out.println("mp3File:" + mp3File);
+//				System.out.println("mp3File:" + mp3File);
+//				log.info("mp3File:{}", mp3File.toString());
+				log.debug("mp3File:{}", mp3File);
+
 				Tag tag = mp3File.getTag();
 				if (tag != null){
 					this.title = tag.getFirst(FieldKey.TITLE);
@@ -77,9 +84,9 @@ public class Mp3File {
 				this.bitRate = mp3File.getAudioHeader().getBitRate();
 			} catch (IOException | TagException | ReadOnlyFileException
 					| InvalidAudioFrameException e) {
-				// TODO Auto-generated catch block
-				System.out.println("file:" + file);
-				e.printStackTrace();
+//				System.out.println("file:" + file);
+//				e.printStackTrace();
+				log.error("file: {}", file, e);
 			}
 
 			
@@ -205,7 +212,7 @@ public class Mp3File {
 
 	public static void main(String[] args) throws Exception {
 		// disable jul logging output
-		Logger globalLogger = Logger.getLogger("");
+		java.util.logging.Logger globalLogger = java.util.logging.Logger.getLogger("");
 		Handler[] handlers = globalLogger.getHandlers();
 		for (Handler handler : handlers) {
 			globalLogger.removeHandler(handler);
@@ -215,7 +222,8 @@ public class Mp3File {
 		File path = new File(INPUT_DIR);
 		Collection<File> files = FileUtils.listFiles(path,
 				new String[] { "mp3" }, true);
-		System.out.println("files.size:" + files.size());
+//		System.out.println("files.size:" + files.size());
+		log.debug("files.size:{}",  files.size());
 		for (File f : files) {
 			Mp3File mp3 = new Mp3File(f);
 			mp3.toCSV(writer);

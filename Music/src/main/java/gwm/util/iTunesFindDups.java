@@ -94,7 +94,8 @@ public class iTunesFindDups {
 							List<String> entry = new ArrayList(20);
 							entry.add(k);
 							entry.add(Integer.toString(trackMap.get(k).size()));
-							entry.addAll(Arrays.asList(t.toArray()));
+							//entry.addAll(Arrays.asList(t.toArray())); //before adding toList
+							entry.addAll(t.toList());
 							writer.writeNext(entry.toArray(new String[entry.size()]));
 						}
 						//					System.out.println("\t" + t1.getLocation());

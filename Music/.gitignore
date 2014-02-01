@@ -4,3 +4,5 @@
 /output
 /build
 *.bak
+/.classpath
+/.project

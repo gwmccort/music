@@ -2,7 +2,7 @@ package gwm.itunes.xml;
 
 /**
  * Enums for iTunes xml dict keys
- * 
+ *
  * @author Glen
  *
  */

@@ -81,6 +81,7 @@ public class TrackHandler extends DefaultHandler {
 	public void endElement(String uri, String localName, String qName)
 			throws SAXException {
 		Tags tag = Tags.fromString(qName);
+
 		switch (tag) {
 			case DICT:
 				if (isInTracks && !isInTrack) {

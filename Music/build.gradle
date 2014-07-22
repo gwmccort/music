@@ -1,5 +1,16 @@
+buildscript {
+	repositories {
+		jcenter()
+	}
+
+	dependencies {
+		 classpath 'com.github.ben-manes:gradle-versions-plugin:0.4'
+	}
+}
+
 apply plugin: 'groovy'
 apply plugin: 'eclipse'
+apply plugin: 'versions'
 
 repositories {
     mavenCentral()

@@ -1,5 +1,18 @@
+buildscript {
+	repositories {
+		jcenter()
+	}
+
+	dependencies {
+		 classpath 'com.github.ben-manes:gradle-versions-plugin:0.4'
+		 classpath 'org.kordamp.gradle:stats-gradle-plugin:0.1.1'
+	}
+}
+
 apply plugin: 'groovy'
 apply plugin: 'eclipse'
+apply plugin: 'versions'
+apply plugin: 'org.kordamp.gradle.stats'
 
 repositories {
     mavenCentral()

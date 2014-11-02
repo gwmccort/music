@@ -1,0 +1,5 @@
+include 'Music'
+include 'PlayList'
+include 'Mp3File'
+include 'LastFmJ'
+include 'iTunesXml'

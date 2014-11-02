@@ -1,0 +1,15 @@
+
+apply plugin: 'groovy'
+apply plugin: 'eclipse'
+
+repositories {
+  jcenter()
+}
+
+dependencies {
+	compile localGroovy()
+	compile 'org.codehaus.groovy.modules.http-builder:http-builder:0.5.0'
+	compile 'org.ccil.cowan.tagsoup:tagsoup:1.2'
+	compile 'net.sf.opencsv:opencsv:latest.release'
+	compile 'de.u-mass:lastfm-java:0.1.2'
+}

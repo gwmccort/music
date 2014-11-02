@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="JID3Example.java" kind="src" path="src"/>
-	<classpathentry kind="src" path="tests"/>
-	<classpathentry kind="con" path="org.apache.ivyde.eclipse.cpcontainer.IVYDE_CONTAINER/?project=Mp3File&amp;ivyXmlPath=ivy.xml&amp;confs=*"/>
-	<classpathentry kind="lib" path="resources"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER" exported="true"/>
+	<classpathentry sourcepath="C:/Users/Glen/.gradle/caches/modules-2/files-2.1/org/jaudiotagger/2.0.3/8a6fb5a3c037c7a7c98eb8024aa066cfa8730f58/jaudiotagger-2.0.3-sources.jar" kind="lib" path="C:/Users/Glen/.gradle/caches/modules-2/files-2.1/org/jaudiotagger/2.0.3/bedb59b6004155a47523b014273d87de505749fd/jaudiotagger-2.0.3.jar" exported="true"/>
+	<classpathentry sourcepath="C:/Users/Glen/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/2.3/ba0ce5e28373e2a21f71395e711b961563ff619d/commons-io-2.3-sources.jar" kind="lib" path="C:/Users/Glen/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/2.3/cd8d6ffc833cc63c30d712a180f4663d8f55799b/commons-io-2.3.jar" exported="true"/>
+	<classpathentry sourcepath="C:/Users/Glen/.gradle/caches/modules-2/files-2.1/net.sf.opencsv/opencsv/2.3/235993117036d44d126f76db9ea2202ee4884682/opencsv-2.3-sources.jar" kind="lib" path="C:/Users/Glen/.gradle/caches/modules-2/files-2.1/net.sf.opencsv/opencsv/2.3/c23708cdb9e80a144db433e23344a788a1fd6599/opencsv-2.3.jar" exported="true"/>
+	<classpathentry sourcepath="C:/Users/Glen/.gradle/caches/modules-2/files-2.1/org.apache.lucene/lucene-core/3.3.0/dbb015133392d38c40d74af57902de408d256ce6/lucene-core-3.3.0-sources.jar" kind="lib" path="C:/Users/Glen/.gradle/caches/modules-2/files-2.1/org.apache.lucene/lucene-core/3.3.0/c2008638b86437ac5927617eaed147e9a98a6cf1/lucene-core-3.3.0.jar" exported="true"/>
+	<classpathentry sourcepath="C:/Users/Glen/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.6.6/bcd0e21b1572960cefd449f8a16efab5b6b8e644/slf4j-api-1.6.6-sources.jar" kind="lib" path="C:/Users/Glen/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.6.6/ce53b0a0e2cfbb27e8a59d38f79a18a5c6a8d2b0/slf4j-api-1.6.6.jar" exported="true"/>
+	<classpathentry sourcepath="C:/Users/Glen/.gradle/caches/modules-2/files-2.1/org.slf4j/jul-to-slf4j/1.6.6/98d636f7ae44af10a85b6ef84ba6677c8f8da131/jul-to-slf4j-1.6.6-sources.jar" kind="lib" path="C:/Users/Glen/.gradle/caches/modules-2/files-2.1/org.slf4j/jul-to-slf4j/1.6.6/e25c3dab7c510a04f807a8f8f07fbc98cc7f309d/jul-to-slf4j-1.6.6.jar" exported="true"/>
+	<classpathentry sourcepath="C:/Users/Glen/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.0.6/40cd654b69e6fbb559b9e1a64394029237a9e085/logback-classic-1.0.6-sources.jar" kind="lib" path="C:/Users/Glen/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.0.6/ba738848da3e6fffa0107771c75546eb6d407f3c/logback-classic-1.0.6.jar" exported="true"/>
+	<classpathentry sourcepath="C:/Users/Glen/.gradle/caches/modules-2/files-2.1/net.sf.javamusictag/jid3lib/0.5.4/5abe5fd69137b33073f25e617bedbd5e0333219e/jid3lib-0.5.4-sources.jar" kind="lib" path="C:/Users/Glen/.gradle/caches/modules-2/files-2.1/net.sf.javamusictag/jid3lib/0.5.4/f775df25dc9973006552b3c4e897e652be84c48d/jid3lib-0.5.4.jar" exported="true"/>
+	<classpathentry sourcepath="C:/Users/Glen/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.0.6/68e79d144697de22cb2a7670580970b6d0364825/logback-core-1.0.6-sources.jar" kind="lib" path="C:/Users/Glen/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.0.6/132d78b900674cd484e91efc69a4ffd36aadfff3/logback-core-1.0.6.jar" exported="true"/>
 </classpath>

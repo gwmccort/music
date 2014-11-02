@@ -4,3 +4,4 @@
 * Create a gradle multi project
 * Gradle exec tasks
 * Better orginize
+* Search with lucene

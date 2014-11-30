@@ -2,4 +2,6 @@
 /**/.gradle/**
 /**/.classpath
 /**/.project
+/**/*.iml
 /**/build/**
+/**/bin/**

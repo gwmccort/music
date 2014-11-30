@@ -6,10 +6,11 @@ plugins {
 
 apply plugin: 'groovy'
 apply plugin: 'eclipse'
+apply plugin: 'idea'
 
 repositories {
 	jcenter()
-    mavenCentral()
+	mavenCentral()
 }
 
 dependencies {
@@ -22,4 +23,15 @@ dependencies {
 	compile 'net.sf.opencsv:opencsv:2.3'
 	compile 'org.apache.lucene:lucene-core:3.3.0'
 	compile 'org.ccil.cowan.tagsoup:tagsoup:1.2.1'
+}
+
+task itunes (dependsOn: 'classes', type: JavaExec) {
+	main = 'gwm.util.iTunesXmlParser'
+	classpath = sourceSets.main.runtimeClasspath
+}
+
+task mp3Files (dependsOn: 'classes', type: JavaExec) {
+//	main = 'gwm.Mp3File'
+	main = 'gwm.musicfile.Mp3File'
+	classpath = sourceSets.main.runtimeClasspath
 }

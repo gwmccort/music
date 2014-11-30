@@ -1,0 +1,38 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'com.github.ben-manes.versions'
+
+buildscript {
+  repositories {
+	jcenter()
+  }
+
+  dependencies {
+	classpath 'com.github.ben-manes:gradle-versions-plugin:0.5-beta-6'
+  }
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+  compile 'org.apache.lucene:lucene-core:4.9.0'
+  compile 'org.apache.lucene:lucene-analyzers-common:4.9.0'
+  compile 'org.apache.lucene:lucene-queryparser:4.9.0'
+    //compile 'org.apache.lucene:lucene-misc:4.9.0'
+	compile 'org:jaudiotagger:2.0.3'
+
+  compile 'org.slf4j:slf4j-api:1.7.7'
+  runtime 'org.slf4j:slf4j-simple:1.7.7'
+  runtime 'org.slf4j:jul-to-slf4j:1.7.7'
+}
+
+task dist(type: Zip) {
+	description = 'Create a zip to be able to rebuild'
+	from('.') {
+	  include 'src/**/*'
+	  include 'build.gradle'
+	}
+}

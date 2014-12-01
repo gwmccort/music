@@ -1,0 +1,6 @@
+= Lucene Project
+
+* com.lucentutorial.HelloLucene.java from: http://www.lucenetutorial.com/lucene-in-5-minutes.html
+* gwm.RamIndexTest.java - uses ramdisk and multi term query
+* gwm.nio - some nio examples
+* org.apache.lucene.demo - demo from apache

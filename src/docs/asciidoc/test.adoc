@@ -3,3 +3,7 @@
 == Things to do
 * lucene
 * refactor track model
+
+== Link to other files
+
+link:../../../Lucene/build/asciidoc/html5/ReadMe.html[Lucene ReadMe]

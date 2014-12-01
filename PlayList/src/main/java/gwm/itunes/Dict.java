@@ -16,7 +16,7 @@ import au.com.bytecode.opencsv.CSVWriter;
 
 public class Dict {
 
-	HashMap<String, Object> m = new HashMap();
+	HashMap<String, Object> m = new HashMap<String, Object>();
 
 	public void add(String key, Object value) {
 		m.put(key, value);

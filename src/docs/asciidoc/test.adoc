@@ -1,4 +1,3 @@
-:last-update-label!:
 
 == Things to do
 * lucene
@@ -6,4 +5,5 @@
 
 == Link to other files
 
-link:../../../Lucene/build/asciidoc/html5/ReadMe.html[Lucene ReadMe]
+* link:../../../Lucene/build/asciidoc/html5/ReadMe.html[Lucene ReadMe]
+* link:../../../MusicProj/build/asciidoc/html5/Music.html[Music]

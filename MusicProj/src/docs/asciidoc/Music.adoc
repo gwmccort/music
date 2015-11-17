@@ -1,6 +1,7 @@
 = Music
 
-== To Do
+== T2D
+* *buildship doesn't work with groovy*
 * Create a gradle multi project
 * Gradle exec tasks
 * Better orginize

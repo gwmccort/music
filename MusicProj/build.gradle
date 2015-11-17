@@ -4,8 +4,6 @@
 //	id "org.asciidoctor.gradle.asciidoctor" version "1.5.0"
 //}
 
-description = 'music stuff'
-
 apply plugin: 'groovy'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
@@ -37,5 +35,12 @@ task runMp3Files (dependsOn: 'classes', type: JavaExec) {
 	description 'Run mp3 file scan to csv file output/bitrate.csv'
 //	main = 'gwm.Mp3File'
 	main = 'gwm.musicfile.Mp3File'
+	classpath = sourceSets.main.runtimeClasspath
+}
+
+task runDelicious (dependsOn: 'classes', type: JavaExec) {
+	description 'Run delicious bookmark export'
+//	main = 'gwm.Mp3File'
+	main = 'bookmarks.DeliciousTest'
 	classpath = sourceSets.main.runtimeClasspath
 }

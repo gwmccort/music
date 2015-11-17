@@ -44,7 +44,8 @@ public class Mp3File {
 //	 static final String INPUT_FILE = "C:\\Users\\Public\\Music";
 //	 static final String INPUT_FILE = "P:\\FANTOM HDS721010CLA332\\Music\\My Music\\Beastie Boys";
 //	 static final String INPUT_FILE = "C:\\Users\\Glen\\Downloads";
-	static final String INPUT_DIR = "P:\\FANTOM HDS721010CLA332\\Media\\Music";
+//	static final String INPUT_DIR = "P:\\FANTOM HDS721010CLA332\\Media\\Music";
+	static final String INPUT_DIR = "C:\\Users\\Public\\Music";
 //	static final String INPUT_DIR = "P:\\FANTOM HDS721010CLA332\\Media\\Music\\Tea Leaf Green\\Coffee Bean Brown Comes Alive";
 //	static final String INPUT_DIR = "C:\\Users\\Glen\\Music\\deleteme";
 	static final String OUT_FILE = "output/bitrate.csv";
@@ -57,7 +58,6 @@ public class Mp3File {
 	 * 
 	 * @param file
 	 *            that contains mp3 file
-	 * @throws Exception
 	 */
 	public Mp3File(File file) { // TODO: deal w/ exception
 //		System.out.println("file:" + file);
@@ -210,6 +210,11 @@ public class Mp3File {
 		System.out.println(mp3);
 	}
 
+	/**
+	 * Scan INPUT_DIR and write tag information to csv file in output directory.
+	 * @param args
+	 * @throws Exception
+	 */
 	public static void main(String[] args) throws Exception {
 		// disable jul logging output
 		java.util.logging.Logger globalLogger = java.util.logging.Logger.getLogger("");

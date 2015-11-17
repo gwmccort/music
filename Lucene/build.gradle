@@ -1,3 +1,5 @@
+description = 'lucene search examples'
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'com.github.ben-manes.versions'

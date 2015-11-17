@@ -1,3 +1,4 @@
+description = 'mp3 tag processor'
 
 apply plugin: 'java'
 apply plugin: 'eclipse'

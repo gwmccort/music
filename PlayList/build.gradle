@@ -1,3 +1,4 @@
+description = 'old playlist stuff'
 
 apply plugin: 'groovy'
 apply plugin: 'eclipse'

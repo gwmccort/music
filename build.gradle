@@ -6,6 +6,7 @@
 
 apply plugin: "org.asciidoctor.gradle.asciidoctor"
 
+description = 'top level music project'
 
 buildscript {
   repositories {

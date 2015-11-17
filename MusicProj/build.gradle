@@ -4,6 +4,8 @@
 //	id "org.asciidoctor.gradle.asciidoctor" version "1.5.0"
 //}
 
+description = 'music stuff'
+
 apply plugin: 'groovy'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
@@ -25,12 +27,14 @@ dependencies {
 	compile 'org.ccil.cowan.tagsoup:tagsoup:1.2.1'
 }
 
-task itunes (dependsOn: 'classes', type: JavaExec) {
+task runItunes (dependsOn: 'classes', type: JavaExec) {
+	description 'Run iTunes xml file parser'
 	main = 'gwm.util.iTunesXmlParser'
 	classpath = sourceSets.main.runtimeClasspath
 }
 
-task mp3Files (dependsOn: 'classes', type: JavaExec) {
+task runMp3Files (dependsOn: 'classes', type: JavaExec) {
+	description 'Run mp3 file scan to csv file output/bitrate.csv'
 //	main = 'gwm.Mp3File'
 	main = 'gwm.musicfile.Mp3File'
 	classpath = sourceSets.main.runtimeClasspath

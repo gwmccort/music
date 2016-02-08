@@ -1,0 +1,6 @@
+= Music
+Glen McCort <gwmccort@gmail.com>
+
+== Main Programs
+* Mp3File.main() - creates csv file of mp3 files
+* ITunesExportReader.main() - ??

@@ -18,7 +18,6 @@ import java.util.logging.Handler;
 
 import org.jaudiotagger.audio.AudioFile;
 import org.jaudiotagger.audio.AudioFileIO;
-import org.jaudiotagger.audio.mp3.MP3File;
 import org.jaudiotagger.tag.FieldKey;
 import org.jaudiotagger.tag.Tag;
 import org.slf4j.Logger;
@@ -26,12 +25,13 @@ import org.slf4j.LoggerFactory;
 
 public class WalkFileTreeExample {
 
-	private static final Logger log = LoggerFactory
-			.getLogger(WalkFileTreeExample.class);
+	private static final Logger	log	= LoggerFactory
+											.getLogger(WalkFileTreeExample.class);
 
 	public static void main(String[] args) throws Exception {
 		// disable jul logging output
-		java.util.logging.Logger globalLogger = java.util.logging.Logger.getLogger("");
+		java.util.logging.Logger globalLogger = java.util.logging.Logger
+				.getLogger("");
 		Handler[] handlers = globalLogger.getHandlers();
 		for (Handler handler : handlers) {
 			globalLogger.removeHandler(handler);
@@ -39,8 +39,10 @@ public class WalkFileTreeExample {
 
 		log.error("in main");
 
-		List<File> files = new ArrayList<>();
-		Path path = Paths.get("c:/Users/glen/downloads");
+		final List<File> files = new ArrayList<>();
+		// Path path = Paths.get("c:/Users/glen/downloads");
+		Path path = Paths.get("c:/Users/gwmccort/downloads");
+		System.out.println("path:" + path);
 
 		// disable jul logging output
 		// java.util.logging.Logger globalLogger = java.util.logging.Logger
@@ -52,9 +54,9 @@ public class WalkFileTreeExample {
 
 		FileVisitor<Path> visitor = new SimpleFileVisitor<Path>() {
 
-			FileSystem fileSystem = FileSystems.getDefault();
-			PathMatcher pathMatcher = fileSystem
-					.getPathMatcher("glob:**/*.{mp3,flac}");
+			FileSystem	fileSystem	= FileSystems.getDefault();
+			PathMatcher	pathMatcher	= fileSystem
+											.getPathMatcher("glob:**/*.{mp3,flac,tcl}");
 
 			// PathMatcher pathMatcher = fileSystem
 			// .getPathMatcher("glob:**/*.mp3");
@@ -78,8 +80,8 @@ public class WalkFileTreeExample {
 
 		for (File file : files) {
 			System.out.println("file:" + file.getName());
-//			MP3File mp3File = new MP3File(file);
-//			Tag tag = mp3File.getTag();
+			// MP3File mp3File = new MP3File(file);
+			// Tag tag = mp3File.getTag();
 			AudioFile audioFile = AudioFileIO.read(file);
 			Tag tag = audioFile.getTag();
 			if (tag != null) {

@@ -10,6 +10,8 @@ Glen McCort <gwmccort@gmail.com>
 * PlayList
 
 == T2D
+. generate bitrate csv 
+.. music\Mp3File\src\main\java\gwm\Mp3File.java
 . look at griffon build
 . documentation
 .. gh-pages

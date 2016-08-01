@@ -25,6 +25,12 @@ import au.com.bytecode.opencsv.CSVWriter;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 
+/**
+ * Create a csv file of duplicate iTunes file.
+ * 
+ * @author gwmccort
+ *
+ */
 public class iTunesFindDups {
 
 	public static void main(String[] args) {

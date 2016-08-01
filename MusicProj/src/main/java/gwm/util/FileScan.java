@@ -10,6 +10,12 @@ import com.google.common.base.Predicate;
 import com.google.common.collect.FluentIterable;
 import com.google.common.io.Files;
 
+/**
+ * Find java and class files using google guave file traversal. 
+ * 
+ * @author gwmccort
+ *
+ */
 public class FileScan {
 
 	public static void main(String[] args) {

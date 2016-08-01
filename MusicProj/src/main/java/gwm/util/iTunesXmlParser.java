@@ -19,6 +19,12 @@ import org.xml.sax.SAXException;
 
 import au.com.bytecode.opencsv.CSVWriter;
 
+/**
+ * Create a csv file from the content of iTunes library xml.
+ * 
+ * @author gwmccort
+ *
+ */
 public class iTunesXmlParser {
 
 	public static void main(String[] args) {

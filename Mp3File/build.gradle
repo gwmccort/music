@@ -1,7 +1,15 @@
-description = 'mp3 tag processor'
+//description = 'mp3 tag processor'
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
+//apply plugin: 'java'
+//apply plugin: 'eclipse'
+
+plugins {
+	id 'java'
+	id 'application'
+	id 'eclipse'
+	id 'idea'
+//	id 'com.github.ben-manes.versions' version '0.13.0'
+}
 
 repositories {
   jcenter()
@@ -18,3 +26,5 @@ dependencies {
         compile 'ch.qos.logback:logback-classic:1.0.6'
 		compile 'net.sf.javamusictag:jid3lib:0.5.4'
 }
+
+mainClassName = "gwm.Mp3File"

@@ -81,9 +81,6 @@ public class Mp3File {
 				System.out.println("file:" + file);
 				e.printStackTrace();
 			}
-
-			
-		
 	}
 
 	public Mp3File(String location, String title, String artist,
